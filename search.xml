@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>Solve &quot;Enter the PIN for your device&quot; issue when pairing Bluetooth keyboard in Windows 10</title>
+      <link href="/solve-enter-the-pin-for-your-device-issue-when-pairing-bluetooth-keyboard-in-windows-10/"/>
+      <url>/solve-enter-the-pin-for-your-device-issue-when-pairing-bluetooth-keyboard-in-windows-10/</url>
+      
+        <content type="html"><![CDATA[<p>I have a Bluetooth keyboard, Microsoft Wireless Entertainment Keyboard 7000.</p><p>So I decided to watch some anime this weekend (I have not watched them for over half a year). I dusted off my Intel NUC connected to the TV, reconfigured the network (I re-flashed my routers), and ran Windows Update. Then, I tried to pair it with my Microsoft Bluetooth keyboard.</p><p>Something weird happened.</p><p>If you have paired with a Bluetooth keyboard on a Windows computer before, you may know that the first connection Windows will ask you to type a bunch of numbers on the Bluetooth keyboard (and press Enter). I also did it before, so I was really surprised I failed 3 times in a row (I swear I typed the numbers right!).</p><p>“Huh.” I thought. Then I tried to pair again, Windows showed this:</p><p align="center">  <img src="https://github.com/xlfdll/xlfdll.github.io/raw/master/images/posts/windows-10-bluetooth-keyboard-pin.png"       alt="Enter the PIN for your device prompt during Windows 10 Bluetooth pairing"></p><p>(I use Japanese version. This basically means “Enter the PIN for your device”.</p><p>Wait…What??? Does this keyboard have a PIN???</p><p>I looked all over and didn’t find any PIN code. I never heard of such things, either. Maybe all keyboards with the same model have a default PIN? So I googled a little bit, and found that a lot of people had the same issue in the past – Windows 10 prompts them to enter a PIN during pairing process, but they don’t have one.</p><p>So…what is the PIN? Google results show that the default PIN could be 0000 or 1234. OK…I typed 0000, connect, no response after 1 minute. Typed 1234, connect, same thing.</p><p>I was like “You gotta be kidding me” – My keyboard is literally unusable now?</p><p>Since I didn’t have a clue about why it is, I started becoming more and more frustrated, and started pressing random buttons on my keyboard. Coincidentally, I pressed Enter key. The pairing process is immediately stopped.</p><p>HUH? WHAT?</p><p>I tried again – Yes, press Enter key during the wait for keyboard response will immediately stop the process, and show the following Error message:</p><p align="center">  <img src="https://github.com/xlfdll/xlfdll.github.io/raw/master/images/posts/windows-10-bluetooth-keyboard-pin-error.png"       alt="PIN Error prompt during Windows 10 Bluetooth pairing"></p><p>(Again, I use Japanese version – “PIN is not correct”)</p><p>So, I started wondering, what if I typed a correct PIN?</p><p>Since I used 0000 as the PIN, so maybe I should type 0000 plus Enter? I tried, but failed. Then I found that I did it backwards – I should type the PIN into the box shown by Windows 10 and connect at first, then immediately type the same PIN code on Bluetooth keyboard (with an Enter key).</p><p>This completed the pairing process with my keyboard. Later experiments show that you can use any PIN (numbers only – other symbols will not work), as long as you typed the same PIN right after you click “Connect” button.</p><p>In short, when you see “Enter the PIN for your device” prompt like above:</p><ol><li>Type a number you selected in the box (using another keyboard or via remote desktop session)</li><li>Click <strong>Connect</strong> button</li><li>Immediately type the same number using Bluetooth to be paired, and press Enter key</li><li>Windows should show you a “pairing successful” message</li></ol><p>I don’t know why Windows shows such extremely weird user interface during the Bluetooth keyboard pairing process. I guess it’s a bug on the design.</p><p>The above I tested is on Windows 10 Version 1903 – Maybe later versions fixed such issues?</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Techniques </tag>
+            
+            <tag> Windows </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Disable &quot;Downloads&quot; Folder in latest Windows 10&#39;s Disk Cleanup Utility</title>
+      <link href="/disable-downloads-folder-in-latest-windows-10-disk-cleanup-utility/"/>
+      <url>/disable-downloads-folder-in-latest-windows-10-disk-cleanup-utility/</url>
+      
+        <content type="html"><![CDATA[<p>A friend of mine just told me that he lost all contents of his Downloads folder, because he used Disk Cleanup Utility to cleanup the disk. This shocks me quite a lot. After some digging, I found that it seems the latest Windows 10 October 2018 Update added this item into the list. Considering a lot of people got into trouble because of this, I wonder if I can remove it from Disk Cleanup Utility list altogether, which I succeeded. Here are steps:</p><ol><li>Backup your system registry, just in case</li><li>Open Registry Editor (open Start Menu, type <strong>regedit</strong> and enter), then go to the following key:<blockquote><p>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches</p></blockquote></li><li>Delete <strong>DownloadsFolder</strong> subkey</li></ol><p>Now “Downloads” option should disappear in Disk Cleanup Utility.</p><p>Looking at values in this subkey, it seems that Disk Cleanup Utility tries to clean <em>%USERPROFILE%\Downloads</em> folder. This seems really odd to me, because you do need to select a drive before performing check and cleanup (in default %USERPROFILE% always locates at C drive). In my computer, I moved Downloads folder to D drive, so %USERPROFILES\Downloads comes up with empty. But consiodering about the serious issues occurred when Windows 10 October 2018 came out at the first time, I am very cautious about it, to be honest.</p><p>To be fair, one thing I need to mention is that <a href="https://blogs.technet.microsoft.com/filecab/2018/08/30/9205/">Microsoft already declared the deprecation of Disk Cleanup Utility and suggested using Storage Sense instead</a>. Maybe its inconsistent design (select a drive but clean folders in C drive anyways) leads to such fate. However, consider about many users used this tool for many years (including me), it is still quite a change.</p><p>P.S.</p><p>Whoever came up with the idea of adding Downloads folder into Disk Cleanup Utility, I think he&#x2F;she did not think about it careful enough. Personally, this is not really a welcoming change to me. I read some Internet comments related to this, some people claim:</p><ul><li>“Downloads” folder should only be a temporary place to store downloaded files</li><li>“Why your Downloads folder XX GB? What did you download?”</li></ul><p>, etc.</p><p>From <em>academic-textbook</em> file organizing perspective, they make some sense. But I have my problems on them:</p><ul><li><strong>When “Downloads” folder was introduced by Windows Vista, there is no explicit indication saying it is a temporary place for storing files</strong></li><li><strong>You really should not tell users “should &#x2F; should not”, or post unnecessary limits on users</strong></li><li><strong>People got used to select all checkboxes in Disk Cleanup Utility, because in past years all items in its list are harmless to be cleaned up</strong></li><li>Some of downloaded files are not available anymore online</li></ul><p>…and many, many others.</p><p>Yes, you can say it is users’ fault not to check before action. But many users developed a habit to check all items because they knew it was harmless to delete them. Using the words from <em>Designing Interfaces: Patterns for Effective Interaction Design (2nd Edition)</em>:</p><blockquote><p>When one uses an interface repeatedly, some frequent physical actions become reflexive…</p></blockquote><blockquote><p> …It’s a sure bet that users will<br>make mistakes, and the more experienced they are—that is, the more habituated they<br>are—the more likely they are to make that mistake.</p></blockquote><p><strong>Because this becomes a habit, when a potential harmful option is added to the list (and without any additional explicit warnings), users will NOT have conscious about it</strong>. The new “Downloads” item looks nothing special, and even worse, there is an option called “Downloaded Program Files” (from Internet Explorer). I bet some people will think “Downloads” is an alias of that, thus did not pay attention to it.</p><p>In a word, I think this is a really bad change. Even though Disk Cleanup Utility is declared deprecated, it is still a really bad idea for users who do not track such information.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Techniques </category>
+          
+          <category> Windows </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Create MonoGame project in Visual Studio without using installers</title>
+      <link href="/create-monogame-project-in-visual-studio-without-using-installers/"/>
+      <url>/create-monogame-project-in-visual-studio-without-using-installers/</url>
+      
+        <content type="html"><![CDATA[<p>In <a href="https://xlfdll.github.io/solve-unable-to-load-freetype6-dll-issue-in-monogame-projects/">last post</a>, I presented how to solve “Unable to load freetype6.dll” issue during MonoGame project compilation process. I mentioned that the MonoGame SDK packages are supposed to work out-of-box via installers, but not currently due to chained dependencies.</p><p>Well, there are more on this. After I solved the compilation issue, everything went through well. However, when I ran the game binaries, I got (yet) another exception:</p><blockquote><p>System.IO.FileNotFoundException: Could not load file or assembly ‘System.Runtime.WindowsRuntime, Version&#x3D;4.0.10.0, Culture&#x3D;neutral, PublicKeyToken&#x3D;b77a5c561934e089’ or one of its dependencies. The system cannot find the file specified.</p></blockquote><p>Wow, this is just wonderful. Why my games, which are Windows desktop applications, need System.Runtime.WindowsRuntime? Isn’t the assembly only required by Universal Windows Platform (or Microsoft Store) apps? What happened ?</p><p>Turns out, for some reason, the MonoGame project template my games are using points the MonoGame framework reference to the assembly for Universal Windows Platform (located in a directory named <em>WindowsUniversal</em>). Of course, I didn’t change the project type at all. All of this can be seen from <em>Properties</em> window in Visual Studio: just right-click the MonoGame entry from <strong>References</strong> in <strong>Solution Explorer</strong> window and choose <strong>Properties</strong>. Oddly, no matter how I tried to remove it and re-add MonoGame framework from Add Reference dialog, and no matter which backend I chose, it always results in adding the one for Universal Windows Platform instead. I guess the MonoGame project template may have something not correctly implemented, either.</p><p>So, the MonoGame project template is a no-go, and I cannot open or compile my game projects without MonoGame SDK being installed (Visual Studio will complain and refuse to load projects, due to the lack of MonoGame MSBuild targets). Instead of looking for the last known working MonoGame SDK version (which I really don’t want to do), I decided to look at the options for manual project setup. I noticed MonoGame has NuGet packages released along with installers, so I went on to experiment and see if I can build a workable MonoGame project without using customized project templates. I succeeded.</p><p>Here are the steps:</p><ol><li>I know it is a little bit annoying, but you still have to solve “Unable to load freetype6.dll” issue using one of the three ways introduced in the <a href="https://xlfdll.github.io/solve-unable-to-load-freetype6-dll-issue-in-monogame-projects/">last post</a>. It still exists even if we use our own project setup, as MonoGame requires to have content pipeline built in order to run the game</li><li>Open Visual Studio and create a C# Console app with your choice of .NET Framework version (should be at least 4.5). Windows Forms or other types of app templates also work, but later on you probably have to remove unnecessary assembly references on your own</li><li>Go to project properties (by right-clicking project name and choose <strong>Properties</strong>). In <strong>Application</strong> tab, change <strong>Output type</strong> to <strong>Windows Application</strong>. This will elinimate the console window when game is running</li><li>Install the following packages from NuGet:<ul><li>MonoGame.Framework.WindowsDX or MonoGame.Framework.WindowsGL (OpenGL and Portable &#x2F; PCL ones may also work, but I have not tried them yet)</li><li>MonoGame.Content.Builder (contains MGCB.exe)</li></ul></li><li>Add XNA &#x2F; MonoGame code, and use MonoGame Pipeline Tool to build content pipeline. Add generated .mgcb files into the project</li><li><strong>VERY important!</strong> Change <strong>Build Action</strong> of all .mgcb files to <strong>MonoGameContentReference</strong> in Properties window (open by right-clicking corresponding files and choose <strong>Properties</strong>)<ul><li>If MonoGameContentReference option was not shown in the list (it happened to me), you may need to reload the project.</li></ul></li><li>Now you should be able to simply build the project and run</li></ol><p>The only downside for this is that .mgcb files cannot be opened in MonoGame Pipeline Tool directly from Visual Studio, though this can be easily solved by alternative means.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Development </category>
+          
+          <category> .NET </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Solve &quot;Unable to load freetype6.dll&quot; issue in MonoGame projects</title>
+      <link href="/solve-unable-to-load-freetype6-dll-issue-in-monogame-projects/"/>
+      <url>/solve-unable-to-load-freetype6-dll-issue-in-monogame-projects/</url>
+      
+        <content type="html"><![CDATA[<p>Recently I was working on the documentation for my personal projects. Being a side step of this task, I need to make sure all my projects are able to be compiled and built without hassle. As the process goes, everything works fine until I started to look at two of my games that use MonoGame framework. Same procedure as usual, I downloaded and installed MonoGame SDK from the official site, and opened my projects in Visual Studio 2015 to compile. This worked before, so I didn’t think too much about it. After all, “<em>what could possibly go wrong?</em>“, right?</p><p>…Right?</p><p>Well, things did go wrong. I got this exception during compiling:</p><blockquote><p>System.DllNotFoundException: Unable to load DLL ‘freetype6.dll’: The specified module could not be found. (Exception from HRESULT: 0x8007007E)</p></blockquote><p>I am pretty sure this is a quite recent thing, as I have never seen it before in my previous attempts of building MonoGame-based games following the same procedure. MonoGame SDK packages are supposed to work out-of-box since they have installers. It seems that something is wrong in these packages.</p><p>Well, after doing some research, I figured out why this happens. The above exception occurred because MonoGame pipeline tool (MGCB.exe) has a dependency on SharpFont, which in turn has a dependency on FreeType (after all, SharpFont is a “<a href="https://github.com/Robmaister/SharpFont">Cross-platform FreeType bindings for .NET</a>“). Unfortunately, the FreeType library which MonoGame SDK packages contain for Windows platform (freetype6.dll) was built on Microsoft Visual C++ 2012, which requires <a href="https://www.microsoft.com/en-us/download/details.aspx?id=30679">Visual C++ 2012 Redistributable Package</a> to function. Without this package, Windows will hit a barricade and fails to load freetype6.dll into memory. This causes SharpFont to throw a DllNotFoundException, which bumps up and leads to the runtime failure of MonoGame pipeline tool.</p><p>To solve this issue, one can use one of the following ways:</p><ul><li>Install <a href="https://www.microsoft.com/en-us/download/details.aspx?id=30679">Visual C++ Redistributable for Visual Studio 2012 Update 4</a> package</li><li>Download one of the latest FreeType <a href="https://github.com/ubawurinna/freetype-windows-binaries">pre-built Windows binaries</a> according to system architecture being used, rename it to <strong>freetype6.dll</strong>, and replace the file in MonoGame pipeline tool directory. This requires <a href="https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads">Visual C++ Redistributable for Visual Studio 2017</a> package to be installed, as these binaries utilize Universal CRT feature</li><li>Download the latest FreeType <a href="https://www.freetype.org/download.html">source code</a>, and use own toolset to compile and build Windows binaries for freetype6.dll replacement</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Development </category>
+          
+          <category> .NET </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Solve search feature not working problem when using Cactus theme in Hexo</title>
+      <link href="/solve-search-feature-not-working-problem-when-using-Cactus-theme-in-Hexo/"/>
+      <url>/solve-search-feature-not-working-problem-when-using-Cactus-theme-in-Hexo/</url>
+      
+        <content type="html"><![CDATA[<p>After a long time of absence, I finally managed to set up this little blog here as my main technical archive.</p><p>First thing, this blog is using an awesome theme named <strong>Cactus (Dark)</strong> developed by Pieter Robberechts (<a href="https://github.com/probberechts">@probberechts</a>). The following is about the search user interface exposed in this theme.</p><p>Basically, after I put the blog online, I noticed that the search page just does not work. No matter what I typed in search box, nothing happened.</p><p>So, I performed the following steps:</p><ol><li><p>Of course, to make search feature work in Hexo, an additional package called <strong><a href="https://www.npmjs.com/package/hexo-generator-search">hexo-generate-search</a></strong> must be installed and configured properly at first. The search user interface in Cactus theme relies on the <em>search.xml</em> file this package generates</p></li><li><p>Follow the <a href="https://github.com/probberechts/hexo-theme-cactus#local-search">steps</a> mentioned in Cactus repository:<br> a. In Hexo, create a new page named <strong>Search</strong><br> b. Insert <strong>search: true</strong> in the front-matter of this page<br> c. In <em>_config.yml</em>, Add <strong>search: &#x2F;Search&#x2F;</strong> in <em>nav</em> section</p></li><li><p>Regenerate static files in Hexo</p></li><li><p>If search feature still does not work after all above steps, check if <em>hexo-uglify</em> plugin is being used. If did, <strong>remove</strong> it</p></li></ol><p>Yep, the last one is what I encountered. For some reason, once I applied this plugin, the JavaScript code for search interface just stopped working (I guess it “uglifies” the code too hard to function). In my case, removing this plugin package made my blog back to normal.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Techniques </category>
+          
+          <category> Web </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Solve boot configuration updating error problem when installing Windows using Boot Camp on MacBook Pro Retina</title>
+      <link href="/solve-windows-installation-error-on-macbook-pro-retina/"/>
+      <url>/solve-windows-installation-error-on-macbook-pro-retina/</url>
+      
+        <content type="html"><![CDATA[<p>It was another long time that I have not updated my blog.</p><p>Many things happened during this time. Basically, I had to move my blog to GitHub because of the instability of the original web servers I used before.</p><p>Also, I changed the platform of the blog from WordPress to hexo based on Node.js due to several reasons: no database support on GitHub, high resource usage of WordPress, etc. Since this is just a blog without any dynamic contents within articles, it is really unnecessary to use a dynamic platform like PHP+MySQL. Hexo can produce static HTML files that have same quality as WordPress’s. Plus, the comment feature built in WordPress is not needed, either.</p><hr><p>Back to the main topic. This is also something happened during this time.</p><p>I bought a new MacBook Pro Retina 15’, since my old MacBook Pro 17’ was getting old. This new machine has 16GB memory and 1TB SSD, which is much, much faster than any of my old machines (even desktops). The larger memory also enables me to open multiple virtual machines at the same time, which proves to be extremely useful in later work.</p><p>However, it was a little bit annoying when I tried to install Windows on it (Don’t ask me why I do this – everything has a reason :)). Following the normal Boot Camp procedures, I always got an error from Windows Setup after copying all the Windows files to hard disk:</p><blockquote><p>Windows could not update the computer’s boot configuration. Installation cannot proceed.</p></blockquote><p>Once I got caught this error, no matter how many times I restarted and tried again, this error never let go.</p><p>I searched on the Internet, trying to find a solution to this. One is that when computer restarts after Boot Camp finished the partitions, use Option-Alt to go back to Mac OS X and use Disk Utility to re-create the Windows partition, then restarts again to install. I tried this, but later on I found that in this case, Windows will boot in MBR (legacy BIOS) mode, not UEFI mode. Even though nothing is obviously wrong, I am not quite satisfied because this is not a standard Boot Camp way for Windows installation.</p><p>After I continued digging in, I finally found the correct way to do this:</p><ol><li>Prepare Windows installation USB flash drive</li><li>Shut down the Mac completely</li><li>Locate the following keys on the keyboard: <strong>Command (⌘)</strong>, <strong>Option</strong>, <strong>P</strong>, and <strong>R</strong></li><li>Turn on the Mac, then press and hold the <strong>Command-Option-P-R</strong> keys immediately after you hear the startup sound</li><li>Hold these keys until the computer restarts and you hear the startup sound for a second time</li><li>Release the keys. Let the Mac boot up into Mac OS X</li><li>Open Boot Camp and follow the normal procedures</li></ol><p>An important thing is, <strong>do not skip any steps</strong>. All steps must be followed strictly. If for some reason, the error still came up, redo the above steps from #2. If a redo is necessary, <strong>always redo from #2</strong>. Redo failed steps only will not solve the problem.</p><p>Using this way, Windows will boot up in UEFI mode. This applies to all versions of Windows that support UEFI boot mode, including Windows 8&#x2F;8.1&#x2F;10.</p><p><strong>P.S.</strong></p><p>There is a bug in this Mac’s boot code. If the Mac started Windows from Mac OS X’s Startup Disk control panel, the Intel CPU’s virtualization feature (VT-x) will be enabled. However, once Windows restarts itself, the virtualization feature (sometimes) will be automatically disabled. If such thing happened, in Windows Task Manager, it will show as</p><ul><li>Virtualization: Disabled</li><li>Hyper-V Support: Enabled</li></ul><p>The reason of this is so far unknown to me. But according to my experience so far, I did not have any issues in using VMware Workstation or other virtualization software. The issues from High-DPI are much more than this.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Techniques </category>
+          
+          <category> Windows </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Solve the blank screen problem when installing CentOS 6.x on HP Compaq 2710p</title>
+      <link href="/solve-centos-6-blank-screen-problem-on-hp-compaq-2710p/"/>
+      <url>/solve-centos-6-blank-screen-problem-on-hp-compaq-2710p/</url>
+      
+        <content type="html"><![CDATA[<p>It has been a long time not being able to maintain here. Partial of the reason is the large amount of homework, being busy. Another one is that, the articles here were all strictly examined, and they are all practical. Because of this, even though sometimes I wanted to write some other types of articles, at last I always thought they don’t match the theme of this blog, thus I just gave up.</p><p>However, I’m happy to write the articles that are useful, especially the ones about the techniques and experiences which I have validated by myself.</p><p>Well, back to the main topic. Several days ago, I decided to use my old, used HP Compaq 2710p Tablet PC as my testing machine, so I formatted the D drive, which stored my personal files (C drive had Windows 8 installed). Basically, it had nothing special – I moved all the data to my flash drives and portable hard drives already.</p><p>Then, I burned a disc of CentOS 6.3, preparing to install one in this machine. But, it failed to start the installer using default configurations. It read the disc for a while, and then got into the blank screen. The keyboard lights were still working (like Caps Lock). At this time I just thought of that, this machine’s graphics adapter is a built-in Intel GMA X3100, and it seems that I encountered the same problem before.</p><p>Well, it sounds like the display driver was not quite compatible, and the only option is to restart the computer and use standard display driver to start all over again. The steps are, when the boot menu from the disc appears, do not select the default (which is the first) option. Instead, select the second one. Thus the installer will start using standard display driver, and avoid the blank screen.</p><p>The rest of the installation procedure has no differences from the general one. After the large-effort installation, restarting the computer, and entering the CentOS, it came with blank screen again. Even worse, this time the keyboard lights seemed not responsive, like system halted. What now?</p><p>It still has a way. The default configuration created by the installer is incompatible with the machine’s built-in graphics adapter, hence it causes such problems. In order to boot the CentOS normally, here are the steps to fix:</p><ol><li>As mentioned just now, when installing CentOS, make sure to select the second option from the boot menu, and use standard display driver to initialize the installation environment.</li><li>At the first time of restarting after the installation, in order to avoid the blank screen, first enter CentOS’s GRUB boot menu, highlight CentOS option.</li><li>Then, press <strong>‘e’</strong> key, and edit the boot parameters; or press <strong>‘a’</strong> key, and edit the kernel parameters.</li><li>In the next screen, try to find the word <strong>“nomodeset”</strong>. If found, remove all of them.</li><li>Then save, go back to GRUB boot menu, boot CentOS using these parameters.</li></ol><p>Using this way, CentOS can boot normally, but it will fail when loading X graphical environment, and display the error message “X server failed to start”, then stops.</p><p>Don’t worry. Continue performing the following steps:</p><ol><li>After seeing the “X server failed to start” error message, press <strong>Ctrl+Alt+F2</strong> on the keyboard. This step is to switch to a new terminal interface.</li><li>Type <strong>“root”</strong> as the user name, and type the password you have set during the installation (Remember, at this time the other users are not created yet), logging in as root user.</li><li>First edit <strong>&#x2F;etc&#x2F;grub.conf</strong> configuration file (in terminal, you can use <strong>“nano”</strong> command to edit). Find all <strong>“nomodeset”</strong> and remove them, then save and exit.</li><li>Then, delete the configuration file <strong>&#x2F;etc&#x2F;X11&#x2F;xorg.conf</strong>.</li><li>Restart the computer.</li></ol><p>Done! Now it should enter into CentOS’s graphical user interface directly. Changing the settings in System – Preferences – Desktop Effects can also enable the 3D desktop.</p><p>The method mentioned in this article has been tested in my HP Compaq 2710p Tablet PC without problems. I have not tested the other laptops that use Intel GMA X3100 built-in graphics adapters by myself, but the principle should be the same.</p><h3 id="P-S"><a href="#P-S" class="headerlink" title="P.S."></a>P.S.</h3><p>In the latest CentOS version (at the time I write this is 6.5), it seems that the problem has been partially solved (the default installation option still cannot work, though). If you are installing CentOS 6.5, and you are using standard display driver to initialize the installer, you don’t need to edit boot &#x2F; kernel parameters before entering into the graphical user interface after the installation process.</p><p>However, you still need to edit &#x2F;etc&#x2F;grub.conf configuration file, because CentOS will keep using standard display driver unless you refreshed the display driver configurations manually.</p><h3 id="Background-–-What-is-“nomodeset”"><a href="#Background-–-What-is-“nomodeset”" class="headerlink" title="Background – What is “nomodeset”?"></a>Background – What is “nomodeset”?</h3><p>“nomodeset” is to disable the Kernel ModeSetting, a.k.a KMS. KMS provides fast mode switching for X environment and console interface, also it enables native-resolution virtual terminals on some portable computers, which used standard modes (like 800×600 or 1024×768) only before.</p><p>Kernel ModeSetting requires the kernel 2.6.29 or above, and the supported graphics adapters. For more information, you can see this wiki article: <a href="https://fedoraproject.org/wiki/Features/KernelModesetting">https://fedoraproject.org/wiki/Features/KernelModesetting</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Techniques </category>
+          
+          <category> *nix </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Retro Windows Techniques: How to skip disk scanning when installing USB Supplement package in Windows 95?</title>
+      <link href="/retro-windows-techniques-skip-disk-scanning-when-installing-usb-supplement-package-in-windows-95/"/>
+      <url>/retro-windows-techniques-skip-disk-scanning-when-installing-usb-supplement-package-in-windows-95/</url>
+      
+        <content type="html"><![CDATA[<p>This “Retro Windows Techniques” series is not about the techniques that are already well known among users. If it is, why I need to write this? lol</p><p>All these techniques apply to the old versions of Windows, and they are not quite known by others. Well, I admit that I have some “nostalgia” feelings. :)</p><hr><p>Some of you may know that, the USB support in Windows 95 can only be used in OEM Service Release 2.1 or 2.5 versions (in some regions, a lot of people called these versions “Windows 97″, even though this name also referred to the OEM Service Release 2 version, which does not support USB). You can search and read the following Microsoft knowledge base articles for more information:</p><ul><li><a href="https://www.betaarchive.com/wiki/index.php/Microsoft_KB_Archive/253756">Availability of Universal Serial Bus Support in Windows 95</a></li><li><a href="https://www.betaarchive.com/wiki/index.php/Microsoft_KB_Archive/181661">Files Included with the USB Supplement in OSR2.1 and OSR2.5</a></li></ul><p><em>Notes on 2024&#x2F;02&#x2F;28</em></p><p><em>The original Microsoft Support links are gone due to the purge of old contents Microsoft did a couple of years ago. Links are now replaced with BetaArchive Wiki ones. Hope it lasts for a while. x_x</em></p><p>The file name of the USB Supplement package is called “usbsupp.exe”, and it is a self-extracting installer. Originally the setup procedure is simple: double-click, agree to the license agreement, follow the prompts and here you go. But due to the unknown reason which Microsoft considered about, when you are installing this update, it will start Windows 95’s ScanDisk. Here’s the problem: This ScanDisk program is designed in a way that, if the hard drive has any write operations, the disk scanning will be restarted. In my virtual machine, even if I did not have anything installed, it will occasionally restarted the scanning process for no reason – Furthermore, the disks of virtual machines are impossible to have disk failure problems!</p><p>I searched on the Internet, and found that some other users also encountered the same problem – There is even an unlucky guy who got his scanning process restarted more than 10 times, and it was still going. Is there a way to bypass this extremely time-consuming disk scanning process?</p><p>Well, it always has a way. Really simple, though:</p><ol><li>Manually open the ScanDisk program without executing the update package.</li><li>Let ScanDisk start the disk scanning process. <strong>Standard mode</strong> is fine.</li><li>Run the update package, and follow the prompts.</li></ol><p>You will surprisedly see that, the update package figures ScanDisk is working, so it just bypasses the disk scanning process and installs the update!</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Retro </category>
+          
+          <category> Windows </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Those Bugs in Windows 7: Weird Control Panel</title>
+      <link href="/those-bugs-in-windows-7-weird-control-panel/"/>
+      <url>/those-bugs-in-windows-7-weird-control-panel/</url>
+      
+        <content type="html"><![CDATA[<p>I don’t know if Windows Vista has this bug or not. But, like the MMC bug I mentioned before, this bug is also a weird one.</p><p>You can reproduce it by performing the following steps, literally:</p><ol><li>Open <strong>Control Panel</strong>.</li><li>Enter a page-based control panel item. It means, this item is a window that integrated into control panel window as a page, not a new dialog. For example, <strong>Network and Sharing Center</strong> is an item like this. The re-designed <strong>System Properties</strong> (The one we look up the Windows activation information in) also counts.</li><li>Try to remember the positions of the links in left column, then go back to the previous page. Using <strong>System Properties</strong> as an example, there are the links such as <strong>Device Manager</strong>, <strong>Advanced system settings</strong> in left column. Remember their positions, then go back.</li><li>In current page’s left column, find the positions, which are now blanks, according to the ones you just remembered. Try to move the mouse cursor to these blanks, see if the cursor changes to a hand. If it changed, it means you can click it.</li><li>If the cursor changed to a hand, try to click it, and see what will happen.</li></ol><p>Originally, if you are in one of the category pages, clicking a text link in left column should switch to the corresponding category page. However, if you have done the steps mentioned above, and you clicked the blank area, it will not switch to the category page you want. Instead, it shows or enters the window of the feature in previous control panel item.</p><p>Well, the description above might be a little complicated for some of you. Let’s see a practical example:</p><ol><li>Open <strong>Control Panel</strong>. Same as the first step mentioned above.</li><li>If you did not change the views of the control panel window on purpose, you should see a category under <strong>Adjust your computer’s settings or search for specific tasks</strong> called <strong>System and Maintenance</strong>. Click it.</li><li>Click <strong>System</strong>.</li><li>There should be a link in left column called <strong>Advanced system settings</strong>. Remember where it is. OK, now we click <strong>Back</strong> button to go back to the previous page.</li><li>Now, the position that contained the link of <strong>Advanced system settings</strong> should be blank (it might have a link in this area, leave it). Move the mouse cursor to this area, and you can see the mouse cursor becomes a hand.</li><li>Click it, it will not open the link before where the mouse cursor currently points to. Instead it will open <strong>Advanced system settings</strong>.</li></ol><p>For other items the behavior is the same. If you entered such an item at least once, and you found the blank area corresponding to the link in left column, then such a link “behind the wall” will work.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Bugs </category>
+          
+          <category> Windows </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Those Bugs in Windows 7: Why my Start Menu settings are not right!?</title>
+      <link href="/those-bugs-in-windows-7-why-my-start-menu-settings-are-not-right/"/>
+      <url>/those-bugs-in-windows-7-why-my-start-menu-settings-are-not-right/</url>
+      
+        <content type="html"><![CDATA[<p>After additional testing, it is confirmed that this bug also exists in Windows XP and Windows Vista.</p><p>Steps to reproduce:</p><ol><li>Right click taskbar, click <strong>Properties</strong>.</li><li>Switch to <strong>Start Menu</strong> tab, click <strong>Customize</strong> button.</li><li>In <strong>Customize Start Menu</strong> dialog, make changes (anything is fine). When finished, click <strong>OK</strong> button (In Windows XP, you need to switch to <strong>Advanced</strong> tab first before make any changes).</li><li>Then, click <strong>Cancel</strong> button in <strong>Taskbar and Start Menu Properties</strong> dialog, which is the top level dialog.</li></ol><p>OK. Now open Start Menu, you can see there is no change at all at this time. But, if you open Taskbar and Start Menu Properties -&gt; Customize Start Menu dialog again, you will be surprised to see that the changes you just made have been all saved, even though the Start Menu does not appear to be changed!</p><p>This is a classic multi-dialog data saving problem. The current situation is that, when you clicked OK button in Customize Start Menu dialog, all the settings were actually being saved. However, the next step of clicking Cancel button will cause the new settings not to be applied immediately. So…if I want to apply these settings, How?</p><p>Well, there are 3 ways:</p><ol><li>Open <strong>Taskbar and Start Menu Properties</strong> -&gt; <strong>Customize Start Menu</strong> dialog again, change something you want, then change it back and click <strong>OK</strong> button to exit from all these dialogs. After this, all the settings will be applied in no time.</li><li>Just restart your computer directly.</li><li>Open <strong>Windows Task Manager</strong> and kill <strong>explorer.exe</strong> process (not recommended, though. It might have unexpected results)</li></ol><p>I regard this as a bug, because if you performed the reproducing steps above, the actual settings and the interface displays are not consistent. Also, in my opinion, the result of clicking Cancel button should be the action of discarding all the changes, not the one of discarding one part of changes while saving another part. The latter action usually can cause some inconsistent and weird results. In a word, this is a violation of atomicity (apply all settings or discard all settings).</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Bugs </category>
+          
+          <category> Windows </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Those Bugs in Windows 7: Flashy Close Button</title>
+      <link href="/those-bugs-in-windows-7-flashy-close-button/"/>
+      <url>/those-bugs-in-windows-7-flashy-close-button/</url>
+      
+        <content type="html"><![CDATA[<p>All right! Let’s see what kind of bugs Windows 7 has.</p><p>Well, I really cannot explain today’s bug I’m about to introduce…It’s really weird.<br>Want to see? Follow me:</p><ol><li>First thing first, make sure your Windows 7 is using an Aero Glass theme, which has the glassy effects on all windows. It’s OK if the transparent effect is not on, though. Anyway, don’t use Windows Basic themes!</li><li>Click <strong>Start</strong> button, find <strong>Computer</strong>, right click it and click <strong>Manage</strong> (need administrator privileges).</li><li>In the new opened window, click <strong>Device Manager</strong> on the left. Find a device (anyone is fine), open its <strong>Properties</strong> window (by double click it).</li><li>Move the mouse cursor to the close button on the right-top corner of the Properties window (the red “X” one). Don’t move, see what happened. lol</li></ol><p>This Close button will be “Flashy” finally. I called this “Button Seizure”.</p><p>In fact, this bug has been existed already since Windows Vista, and it not only exists in Device Manager. I still don’t know the reason, though, that why only some of the dialogs in MMC has this kind of weird things. Is the window procedure of these dialogs more special than standard ones?</p><p>(MMC &#x3D; Microsoft Management Console. Device Manager is actually a management component based on this)</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Bugs </category>
+          
+          <category> Windows </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+  
+  
+</search>
