@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Xlfdll Workstation</title>
+  
+  <subtitle>Time to get retro? ;-)</subtitle>
+  <link href="https://xlfdll.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://xlfdll.github.io/"/>
+  <updated>2024-10-19T16:14:33.231Z</updated>
+  <id>https://xlfdll.github.io/</id>
+  
+  <author>
+    <name>Xlfdll</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Solve &quot;Enter the PIN for your device&quot; issue when pairing Bluetooth keyboard in Windows 10</title>
+    <link href="https://xlfdll.github.io/solve-enter-the-pin-for-your-device-issue-when-pairing-bluetooth-keyboard-in-windows-10/"/>
+    <id>https://xlfdll.github.io/solve-enter-the-pin-for-your-device-issue-when-pairing-bluetooth-keyboard-in-windows-10/</id>
+    <published>2020-07-09T10:23:04.000Z</published>
+    <updated>2024-10-19T16:14:33.231Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;I have a Bluetooth keyboard, Microsoft Wireless Entertainment Keyboard 7000.&lt;/p&gt;
+&lt;p&gt;So I decided to watch some anime this weekend (I</summary>
+        
+      
+    
+    
+    
+    
+    <category term="Techniques" scheme="https://xlfdll.github.io/tags/Techniques/"/>
+    
+    <category term="Windows" scheme="https://xlfdll.github.io/tags/Windows/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Disable &quot;Downloads&quot; Folder in latest Windows 10&#39;s Disk Cleanup Utility</title>
+    <link href="https://xlfdll.github.io/disable-downloads-folder-in-latest-windows-10-disk-cleanup-utility/"/>
+    <id>https://xlfdll.github.io/disable-downloads-folder-in-latest-windows-10-disk-cleanup-utility/</id>
+    <published>2019-03-10T11:47:28.000Z</published>
+    <updated>2024-10-19T16:14:33.231Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;A friend of mine just told me that he lost all contents of his Downloads folder, because he used Disk Cleanup Utility to cleanup the</summary>
+        
+      
+    
+    
+    
+    <category term="Techniques" scheme="https://xlfdll.github.io/categories/Techniques/"/>
+    
+    <category term="Windows" scheme="https://xlfdll.github.io/categories/Techniques/Windows/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Create MonoGame project in Visual Studio without using installers</title>
+    <link href="https://xlfdll.github.io/create-monogame-project-in-visual-studio-without-using-installers/"/>
+    <id>https://xlfdll.github.io/create-monogame-project-in-visual-studio-without-using-installers/</id>
+    <published>2018-10-17T18:45:08.000Z</published>
+    <updated>2024-10-19T16:14:33.231Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;In &lt;a href=&quot;https://xlfdll.github.io/solve-unable-to-load-freetype6-dll-issue-in-monogame-projects/&quot;&gt;last post&lt;/a&gt;, I presented how to</summary>
+        
+      
+    
+    
+    
+    <category term="Development" scheme="https://xlfdll.github.io/categories/Development/"/>
+    
+    <category term=".NET" scheme="https://xlfdll.github.io/categories/Development/NET/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Solve &quot;Unable to load freetype6.dll&quot; issue in MonoGame projects</title>
+    <link href="https://xlfdll.github.io/solve-unable-to-load-freetype6-dll-issue-in-monogame-projects/"/>
+    <id>https://xlfdll.github.io/solve-unable-to-load-freetype6-dll-issue-in-monogame-projects/</id>
+    <published>2018-10-16T18:46:09.000Z</published>
+    <updated>2024-10-19T16:14:33.231Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Recently I was working on the documentation for my personal projects. Being a side step of this task, I need to make sure all my</summary>
+        
+      
+    
+    
+    
+    <category term="Development" scheme="https://xlfdll.github.io/categories/Development/"/>
+    
+    <category term=".NET" scheme="https://xlfdll.github.io/categories/Development/NET/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Solve search feature not working problem when using Cactus theme in Hexo</title>
+    <link href="https://xlfdll.github.io/solve-search-feature-not-working-problem-when-using-Cactus-theme-in-Hexo/"/>
+    <id>https://xlfdll.github.io/solve-search-feature-not-working-problem-when-using-Cactus-theme-in-Hexo/</id>
+    <published>2018-10-08T18:26:06.000Z</published>
+    <updated>2024-10-19T16:14:33.231Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;After a long time of absence, I finally managed to set up this little blog here as my main technical archive.&lt;/p&gt;
+&lt;p&gt;First thing, this</summary>
+        
+      
+    
+    
+    
+    <category term="Techniques" scheme="https://xlfdll.github.io/categories/Techniques/"/>
+    
+    <category term="Web" scheme="https://xlfdll.github.io/categories/Techniques/Web/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Solve boot configuration updating error problem when installing Windows using Boot Camp on MacBook Pro Retina</title>
+    <link href="https://xlfdll.github.io/solve-windows-installation-error-on-macbook-pro-retina/"/>
+    <id>https://xlfdll.github.io/solve-windows-installation-error-on-macbook-pro-retina/</id>
+    <published>2016-01-04T03:00:00.000Z</published>
+    <updated>2024-10-19T16:14:33.231Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;It was another long time that I have not updated my blog.&lt;/p&gt;
+&lt;p&gt;Many things happened during this time. Basically, I had to move my blog</summary>
+        
+      
+    
+    
+    
+    <category term="Techniques" scheme="https://xlfdll.github.io/categories/Techniques/"/>
+    
+    <category term="Windows" scheme="https://xlfdll.github.io/categories/Techniques/Windows/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Solve the blank screen problem when installing CentOS 6.x on HP Compaq 2710p</title>
+    <link href="https://xlfdll.github.io/solve-centos-6-blank-screen-problem-on-hp-compaq-2710p/"/>
+    <id>https://xlfdll.github.io/solve-centos-6-blank-screen-problem-on-hp-compaq-2710p/</id>
+    <published>2012-11-23T07:13:00.000Z</published>
+    <updated>2024-10-19T16:14:33.231Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;It has been a long time not being able to maintain here. Partial of the reason is the large amount of homework, being busy. Another one</summary>
+        
+      
+    
+    
+    
+    <category term="Techniques" scheme="https://xlfdll.github.io/categories/Techniques/"/>
+    
+    <category term="*nix" scheme="https://xlfdll.github.io/categories/Techniques/nix/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Retro Windows Techniques: How to skip disk scanning when installing USB Supplement package in Windows 95?</title>
+    <link href="https://xlfdll.github.io/retro-windows-techniques-skip-disk-scanning-when-installing-usb-supplement-package-in-windows-95/"/>
+    <id>https://xlfdll.github.io/retro-windows-techniques-skip-disk-scanning-when-installing-usb-supplement-package-in-windows-95/</id>
+    <published>2011-07-08T05:50:00.000Z</published>
+    <updated>2024-10-19T16:14:33.231Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;This “Retro Windows Techniques” series is not about the techniques that are already well known among users. If it is, why I need to</summary>
+        
+      
+    
+    
+    
+    <category term="Retro" scheme="https://xlfdll.github.io/categories/Retro/"/>
+    
+    <category term="Windows" scheme="https://xlfdll.github.io/categories/Retro/Windows/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Those Bugs in Windows 7: Weird Control Panel</title>
+    <link href="https://xlfdll.github.io/those-bugs-in-windows-7-weird-control-panel/"/>
+    <id>https://xlfdll.github.io/those-bugs-in-windows-7-weird-control-panel/</id>
+    <published>2011-04-15T02:04:00.000Z</published>
+    <updated>2024-10-19T16:14:33.231Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;I don’t know if Windows Vista has this bug or not. But, like the MMC bug I mentioned before, this bug is also a weird one.&lt;/p&gt;
+&lt;p&gt;You</summary>
+        
+      
+    
+    
+    
+    <category term="Bugs" scheme="https://xlfdll.github.io/categories/Bugs/"/>
+    
+    <category term="Windows" scheme="https://xlfdll.github.io/categories/Bugs/Windows/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Those Bugs in Windows 7: Why my Start Menu settings are not right!?</title>
+    <link href="https://xlfdll.github.io/those-bugs-in-windows-7-why-my-start-menu-settings-are-not-right/"/>
+    <id>https://xlfdll.github.io/those-bugs-in-windows-7-why-my-start-menu-settings-are-not-right/</id>
+    <published>2010-10-20T18:15:00.000Z</published>
+    <updated>2024-10-19T16:14:33.231Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;After additional testing, it is confirmed that this bug also exists in Windows XP and Windows Vista.&lt;/p&gt;
+&lt;p&gt;Steps to</summary>
+        
+      
+    
+    
+    
+    <category term="Bugs" scheme="https://xlfdll.github.io/categories/Bugs/"/>
+    
+    <category term="Windows" scheme="https://xlfdll.github.io/categories/Bugs/Windows/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Those Bugs in Windows 7: Flashy Close Button</title>
+    <link href="https://xlfdll.github.io/those-bugs-in-windows-7-flashy-close-button/"/>
+    <id>https://xlfdll.github.io/those-bugs-in-windows-7-flashy-close-button/</id>
+    <published>2010-10-19T17:13:00.000Z</published>
+    <updated>2024-10-19T16:14:33.231Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;All right! Let’s see what kind of bugs Windows 7 has.&lt;/p&gt;
+&lt;p&gt;Well, I really cannot explain today’s bug I’m about to introduce…It’s</summary>
+        
+      
+    
+    
+    
+    <category term="Bugs" scheme="https://xlfdll.github.io/categories/Bugs/"/>
+    
+    <category term="Windows" scheme="https://xlfdll.github.io/categories/Bugs/Windows/"/>
+    
+    
+  </entry>
+  
+</feed>

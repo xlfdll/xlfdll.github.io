@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/xlfdll
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://xlfdll.github.io
+  * I am xlfdll (https://keybase.io/xlfdll) on keybase.
+  * I have a public key ASDmKC3ST1ZTKSQ3KmHTMCc-lt5vlCbCEFyqBtWza4xRqQo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01207c4da9c415b9bbbc15e939f84361d020e238e63274f876f09e3c11fa30b5a7000a",
+      "host": "keybase.io",
+      "kid": "0120e6282dd24f56532924372a61d330273e96de6f9426c2105caa06d5b36b8c51a90a",
+      "uid": "f0eb62e1764dcb68f111ea5d227dfc19",
+      "username": "xlfdll"
+    },
+    "merkle_root": {
+      "ctime": 1612340355,
+      "hash": "1182adc25150badaeb5d8e45fbf351f472396f2008b442c59dedb473b4d1f46ff69540a99dbc811e2c59c69039370c8bead64495840b909f9223166ec1219a9a",
+      "hash_meta": "08d5339eec8b18e7d54d639e20527f5e0cc6d48eec0d5bbcce540786fffb4461",
+      "seqno": 18995750
+    },
+    "service": {
+      "entropy": "IL1U2Yk8jv+nH/ziJB+enV9l",
+      "hostname": "xlfdll.github.io",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.6.0"
+  },
+  "ctime": 1612340403,
+  "expire_in": 504576000,
+  "prev": "4573925435deff9029adc362b1f8b2abc49d400162e14e5d0f650fb28190b3c3",
+  "seqno": 26,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEg5igt0k9WUykkNyph0zAnPpbeb5QmwhBcqgbVs2uMUakKp3BheWxvYWTESpcCGsQgRXOSVDXe/5AprcNisfiyq8SdQAFi4U5dD2UPsoGQs8PEICMNzXmwQvBJSaEgsTwh9G38Mb1VRiF9tLvFV9IcPTYjAgHCo3NpZ8RAinsTlE6CyC5F5KtKODq5VnxUvmxeFG3Qxecnwo4NQWePzkBHoQVR4LVo6EIWFJiBr6plzXkRYlm8U7tDnP3WCKhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIM6YxPGCsVJpsuA4SYhu97PO6/1wrYqvkSZqj6xl7Sf+o3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/xlfdll
+
+==================================================================
